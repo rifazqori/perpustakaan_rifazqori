@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block title %}Beranda - Menu Utama{% endblock %}
+
+{% block content %}
+<div class="p-5 mb-5 bg-white rounded-4 shadow-sm border text-center">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold text-primary mb-3">Selamat Datang di Web Saya!</h1>
+        <p class="col-md-8 mx-auto fs-5 text-secondary">
+            Ini adalah halaman utama (Dashboard). Silakan pilih menu di bawah ini untuk menelusuri informasi lebih lanjut.
+        </p>
+    </div>
+</div>
+
+<div class="row g-4 justify-content-center">
+    
+    <div class="col-md-5 col-lg-4">
+        <div class="card h-100 shadow-sm border-0 text-center transition-hover">
+            <div class="card-body p-4 p-md-5">
+                <div class="display-3 mb-3">👤</div>
+                <h4 class="card-title fw-bold">Profil Saya</h4>
+                <p class="card-text text-muted mb-4">Lihat biodata, pendidikan, pengalaman, dan keahlian teknis yang saya miliki.</p>
+                <a href="{{ url_for('profil') }}" class="btn btn-outline-primary w-100 btn-lg rounded-pill">Buka Profil</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5 col-lg-4">
+        <div class="card h-100 shadow-sm border-0 text-center transition-hover">
+            <div class="card-body p-4 p-md-5">
+                <div class="display-3 mb-3">✉️</div>
+                <h4 class="card-title fw-bold">Hubungi Saya</h4>
+                <p class="card-text text-muted mb-4">Kirimkan pesan, pertanyaan, atau penawaran kerja sama melalui form interaktif.</p>
+                <a href="{{ url_for('contact') }}" class="btn btn-outline-success w-100 btn-lg rounded-pill">Buka Kontak</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    .transition-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .transition-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    }
+</style>
+{% endblock %}

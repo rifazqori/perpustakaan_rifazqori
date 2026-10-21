@@ -1,6 +1,6 @@
-/.venv
-/.vscode
-/pemrograman web minggu 2
-/Projek perpustakaan
-/Projek perpustakaan.rar
-/PW minggu ke 3
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.vscode/
+.env

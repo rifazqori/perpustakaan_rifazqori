@@ -1,0 +1,66 @@
+
+{% extends "base.html" %}
+
+{% block title %}Tambah Buku{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h3 class="mb-4">Tambah Buku</h3>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endwith %}
+
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Judul Buku</label>
+                    <input
+                        type="text"
+                        name="judul"
+                        class="form-control"
+                        required
+                    >
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Penerbit</label>
+                    <select name="id_penerbit" class="form-select" required>
+                        <option value="">-- Pilih Penerbit --</option>
+                        {% for penerbit in daftar_penerbit %}
+                            <option value="{{ penerbit.id_penerbit }}">
+                                {{ penerbit.nama_penerbit }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Stok</label>
+                    <input
+                        type="number"
+                        name="stok"
+                        class="form-control"
+                        min="0"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Simpan Buku
+                </button>
+
+                <a href="{{ url_for('admin.dashboard') }}"
+                   class="btn btn-secondary">
+                    Kembali
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block title %}Hubungi Saya{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm border-0 mt-4">
+            <div class="card-body p-4 p-md-5">
+                <h3 class="fw-bold mb-4 text-center">Kirim Pesan</h3>
+                
+                <!-- Form Kontak -->
+                <form action="#" method="POST">
+                    <div class="mb-3">
+                        <label for="nama" class="form-label fw-semibold">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="nama" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold">Alamat Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="nama@contoh.com" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="pesan" class="form-label fw-semibold">Pesan Anda</label>
+                        <textarea class="form-control" id="pesan" rows="5" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Kirim Pesan</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        
+        <!-- Tombol Kembali -->
+        <div class="text-center mt-4 pb-4">
+            <a href="{{ url_for('profil') }}" class="text-decoration-none text-secondary">
+                &larr; Kembali ke Profil
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
