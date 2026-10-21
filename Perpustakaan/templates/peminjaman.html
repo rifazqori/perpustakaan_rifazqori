@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Peminjaman Buku | Perpustakaan{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="mb-4">
+            <h2 class="fw-bold">Peminjaman Buku</h2>
+            <p class="text-secondary">
+                Isi formulir untuk mengajukan peminjaman buku.
+            </p>
+        </div>
+
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">
+                            Nama lengkap
+                        </label>
+                        <input type="text" class="form-control"
+                               id="nama" name="nama"
+                               maxlength="100" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">
+                            Email
+                        </label>
+                        <input type="email" class="form-control"
+                               id="email" name="email"
+                               maxlength="100" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="id_buku" class="form-label">
+                            Pilih buku
+                        </label>
+                        <select class="form-select" id="id_buku"
+                                name="id_buku" required>
+                            <option value="">-- Pilih buku --</option>
+                            {% for buku in daftar_buku %}
+                            <option value="{{ buku.id_buku }}">
+                                {{ buku.judul }} (Stok: {{ buku.stok }})
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">
+                        Kirim Pengajuan
+                    </button>
+                    <a href="{{ url_for('buku.dashboard') }}"
+                       class="btn btn-outline-secondary w-100 mt-2">
+                        Kembali
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
